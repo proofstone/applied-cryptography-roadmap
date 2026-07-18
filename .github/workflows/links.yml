@@ -27,6 +27,7 @@ jobs:
             --accept 200,206,429
             --exclude esl\.cs\.brown\.edu
             --exclude coursera\.org
+            --exclude iacr\.org
             README.md CONTRIBUTING.md
           fail: true
 
