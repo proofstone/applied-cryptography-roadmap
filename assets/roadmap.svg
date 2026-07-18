@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 1080" width="780" height="1080" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="Applied cryptography roadmap path map">
+<rect width="780" height="1080" fill="none"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5a6472"/></marker></defs>
+<text x="60" y="42" font-size="21" font-weight="700" fill="#1b2430">Working engineer → shipping cryptography safely</text>
+<text x="60" y="66" font-size="13" fill="#5a6472">Every node is a milestone with a pass/fail flag. ⭐ = flagship break. 🔀 = fork. Spine = OWASP A04 checklist.</text>
+<text x="60" y="94" font-size="12" fill="#7a5fb0" font-weight="600">🔀 Pick your order: A = Cryptopals-first · B = CryptoHack-first — both merge into §1.</text>
+<line x1="200" y1="168" x2="200" y2="200" stroke="#5a6472" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="200" y1="252" x2="200" y2="284" stroke="#5a6472" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="200" y1="336" x2="200" y2="368" stroke="#5a6472" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="200" y1="420" x2="200" y2="452" stroke="#5a6472" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="200" y1="504" x2="200" y2="620" stroke="#5a6472" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="200" y1="672" x2="200" y2="704" stroke="#5a6472" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="200" y1="756" x2="200" y2="788" stroke="#5a6472" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="200" y1="840" x2="200" y2="956" stroke="#5a6472" stroke-width="1.8" marker-end="url(#arrow)"/>
+<path d="M 340 646 C 380 646, 380 898, 340 898" fill="none" stroke="#5a6472" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<text x="364" y="566" font-size="12" fill="#5a6472">deployment-facing · runs alongside</text>
+<text x="364" y="894" font-size="12" fill="#d08a2e" font-weight="600">read anytime after §6</text>
+<text x="364" y="910" font-size="12" fill="#5a6472">precision: read NIST, not the blogs</text>
+<text x="364" y="986" font-size="12" fill="#5b7aa8" font-weight="600">🔀 design fork → Ph.D. (Kamara)</text>
+<rect x="60" y="116" width="280" height="52" rx="10" fill="#e8eef7" stroke="#5b7aa8" stroke-width="2"/>
+<text x="76" y="148" font-size="15" font-weight="700" fill="#5b7aa8">§0</text>
+<text x="122" y="148" font-size="14" font-weight="600" fill="#1b2430">Orientation</text>
+<rect x="60" y="200" width="280" height="52" rx="10" fill="#dcefe4" stroke="#4f9b74" stroke-width="2"/>
+<text x="76" y="232" font-size="15" font-weight="700" fill="#4f9b74">§1</text>
+<text x="122" y="232" font-size="14" font-weight="600" fill="#1b2430">Symmetric: XOR, ECB, CBC</text>
+<rect x="60" y="284" width="280" height="52" rx="10" fill="#f7dfe0" stroke="#c15862" stroke-width="2"/>
+<text x="76" y="316" font-size="15" font-weight="700" fill="#c15862">§2</text>
+<text x="122" y="316" font-size="14" font-weight="600" fill="#1b2430">The padding oracle ⭐</text>
+<rect x="60" y="368" width="280" height="52" rx="10" fill="#dcefe4" stroke="#4f9b74" stroke-width="2"/>
+<text x="76" y="400" font-size="15" font-weight="700" fill="#4f9b74">§3</text>
+<text x="122" y="400" font-size="14" font-weight="600" fill="#1b2430">Randomness that isn't</text>
+<rect x="60" y="452" width="280" height="52" rx="10" fill="#dcefe4" stroke="#4f9b74" stroke-width="2"/>
+<text x="76" y="484" font-size="15" font-weight="700" fill="#4f9b74">§4</text>
+<text x="122" y="484" font-size="14" font-weight="600" fill="#1b2430">Hashes &amp; length extension ⭐</text>
+<rect x="60" y="536" width="280" height="52" rx="10" fill="#efe7da" stroke="#9c7a3e" stroke-width="2"/>
+<text x="76" y="568" font-size="15" font-weight="700" fill="#9c7a3e">§5</text>
+<text x="122" y="568" font-size="14" font-weight="600" fill="#1b2430">Keys, passwords, mgmt</text>
+<rect x="60" y="620" width="280" height="52" rx="10" fill="#e9e3f5" stroke="#7a5fb0" stroke-width="2"/>
+<text x="76" y="652" font-size="15" font-weight="700" fill="#7a5fb0">§6</text>
+<text x="122" y="652" font-size="14" font-weight="600" fill="#1b2430">Public key: RSA/DSA/DH ⭐</text>
+<rect x="60" y="704" width="280" height="52" rx="10" fill="#e9e3f5" stroke="#7a5fb0" stroke-width="2"/>
+<text x="76" y="736" font-size="15" font-weight="700" fill="#7a5fb0">§7</text>
+<text x="122" y="736" font-size="14" font-weight="600" fill="#1b2430">Elliptic curves</text>
+<rect x="60" y="788" width="280" height="52" rx="10" fill="#dce9f5" stroke="#3d7bb5" stroke-width="2"/>
+<text x="76" y="820" font-size="15" font-weight="700" fill="#3d7bb5">§8</text>
+<text x="122" y="820" font-size="14" font-weight="600" fill="#1b2430">Crypto on the web</text>
+<rect x="60" y="872" width="280" height="52" rx="10" fill="#fde8c8" stroke="#d08a2e" stroke-width="2"/>
+<text x="76" y="904" font-size="15" font-weight="700" fill="#d08a2e">§9</text>
+<text x="122" y="904" font-size="14" font-weight="600" fill="#1b2430">Post-quantum ⭐</text>
+<rect x="60" y="956" width="280" height="52" rx="10" fill="#e8eef7" stroke="#5b7aa8" stroke-width="2"/>
+<text x="76" y="988" font-size="15" font-weight="700" fill="#5b7aa8">§10</text>
+<text x="122" y="988" font-size="14" font-weight="600" fill="#1b2430">The honest ceiling</text>
+</svg>
