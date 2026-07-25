@@ -277,8 +277,12 @@ def build() -> str:
     a(f'<text x="{SPINE_X + 192}" y="{ly}" font-size="12" fill="{LINE}">'
       f'alongside &#183; your timing</text>')
     a(flagship_stamp(SPINE_X + 380, ly + 2))
+    # "break" would overclaim: the README says a flagship is "the famous, hard
+    # breaks (plus the one precision milestone that most sets this map apart)"
+    # — and M9.1, reading the NIST source, is that precision milestone, not a
+    # break. "Flagship milestone" is the README's own term and covers all four.
     a(f'<text x="{SPINE_X + 484}" y="{ly}" font-size="12" fill="{LINE}">'
-      f'section with a flagship break</text>')
+      f'section with a flagship milestone</text>')
 
     a("</svg>")
     return "\n".join(p) + "\n"

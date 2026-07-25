@@ -71,5 +71,5 @@
 <line x1="196" y1="1034" x2="222" y2="1034" stroke="var(--map-line, #6b6152)" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arw)"/>
 <text x="232" y="1038" font-size="12" fill="var(--map-line, #6b6152)">alongside &#183; your timing</text>
 <rect x="420" y="1027" width="88" height="17" rx="2" fill="none" stroke="var(--gold, #7a5809)" stroke-width="1.2" transform="rotate(-3 464 1035)"/><text x="464" y="1039" transform="rotate(-3 464 1035)" text-anchor="middle" font-family="'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9" letter-spacing="1.5" font-weight="600" fill="var(--gold, #7a5809)">FLAGSHIP</text>
-<text x="524" y="1038" font-size="12" fill="var(--map-line, #6b6152)">section with a flagship break</text>
+<text x="524" y="1038" font-size="12" fill="var(--map-line, #6b6152)">section with a flagship milestone</text>
 </svg>
