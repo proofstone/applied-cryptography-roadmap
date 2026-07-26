@@ -41,3 +41,17 @@ jobs:
       - name: Roadmap SVG is in sync with its renderer
         run: |
           python scripts/render_map.py --check
+
+  # proofstone.dev renders this README directly and rebuilds within seconds of a
+  # merge, so the checks that protect that render belong in front of the merge,
+  # not after it. Same job, same script, in every roadmap repo.
+  form:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: README keeps the shape the site renders
+        run: |
+          python scripts/check_form.py
