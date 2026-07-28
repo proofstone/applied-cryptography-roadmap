@@ -2,6 +2,8 @@
 
 This roadmap has two things that make it different from a link list, and contributions have to hold both lines. This guide is the quality gate.
 
+**Questions and half-formed ideas go to [Discussions](https://github.com/proofstone/applied-cryptography-roadmap/discussions), not issues** — "is §4 missing something?", "what do you think about X". Issues here are for the two templates: a resource, or a milestone.
+
 ## Rule 1 — a node is a milestone, not a topic
 
 > Every node states an artifact the reader can point to, phrased as **`You're done when …`** and ending in something *checkable*: a passing Cryptopals/CryptoHack challenge, a completed course track, a tool's pass/fail output.
