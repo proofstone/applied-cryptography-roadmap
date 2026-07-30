@@ -105,7 +105,6 @@ ASIDES = [("§5", "§6", 430), ("§6", "§9", 405), ("§9", "§10", 380)]
 
 # --- layout -----------------------------------------------------------------
 W = 820
-H = 1064
 
 SPINE_X, SPINE_W = 40, 320
 ASIDE_X, ASIDE_W = 440, 320
@@ -124,6 +123,19 @@ POS = {
     "§9":  (ASIDE_X, 798, ASIDE_W, NODE_H),
     "§10": (SPINE_X, 970, SPINE_W, NODE_H),
 }
+
+# The legend band is DERIVED from the last thing the map draws, not pinned to the
+# page height. It used to be `ly = H - 26` while the caption under §10 was pinned
+# to that node, and the two bands crossed: on the shipped map the legend row
+# already ran through "or fork out, honestly …", and its rule sat above both.
+# Nobody saw it because nothing measured it. Raising the type made the overlap
+# wider and pushed the legend up into the §10 node as well.
+# Deriving the band is what stops it coming back: move a node, add a caption,
+# raise the type again — the legend follows, and H follows the legend.
+CAPTION_DROP = 22                       # baseline of a caption under its node
+_LAST_CAPTION = POS["§10"][1] + POS["§10"][3] + CAPTION_DROP
+LEGEND_Y = _LAST_CAPTION + 39           # baseline of the legend row
+H = LEGEND_Y + 18                       # bottom margin under the legend
 
 # The fork, as geometry. NOT sections — see rule 2.
 ORDER_Y, ORDER_H = 190, 44
@@ -155,9 +167,9 @@ def flagship_stamp(x: float, y: float) -> str:
     cx, cy = x + 44, y - 5
     return (
         f'<rect x="{x}" y="{y - 13}" width="88" height="17" rx="2" fill="none" '
-        f'stroke="{GOLD}" stroke-width="1.2" transform="rotate(-3 {cx} {cy})"/>'
-        f'<text x="{cx}" y="{y - 1}" transform="rotate(-3 {cx} {cy})" '
-        f'text-anchor="middle" font-family="{MONO}" font-size="9" letter-spacing="1.5" '
+        f'stroke="{GOLD}" stroke-width="1.2"/>'
+        f'<text x="{cx}" y="{y - 1}" '
+        f'text-anchor="middle" class="map-plate" font-family="{MONO}" font-size="9" letter-spacing="1.5" '
         f'font-weight="600" fill="{GOLD}">FLAGSHIP</text>'
     )
 
@@ -198,7 +210,7 @@ def build() -> str:
 
     a(f'<text x="{SPINE_X}" y="46" font-size="23" font-weight="700" fill="{INK}">'
       f'Working engineer &#8594; shipping cryptography safely</text>')
-    a(f'<text x="{SPINE_X}" y="72" font-size="13" fill="{LINE}">'
+    a(f'<text x="{SPINE_X}" y="72" font-size="14" fill="{LINE}">'
       f'Every node is a milestone with a pass/fail flag.</text>')
 
     a(f'<defs><marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" '
@@ -217,7 +229,7 @@ def build() -> str:
     for ox, name, sub in ORDERS:
         a(f'<rect x="{ox}" y="{ORDER_Y}" width="{SPINE_W}" height="{ORDER_H}" rx="6" '
           f'fill="{PAPER}" stroke="{LINE}" stroke-width="1.4" stroke-dasharray="5 4"/>')
-        a(f'<text x="{ox + 16}" y="{ORDER_Y + 27}" font-family="{MONO}" font-size="11" '
+        a(f'<text x="{ox + 16}" y="{ORDER_Y + 27}" font-family="{MONO}" font-size="14" '
           f'letter-spacing="1" fill="{ACCENT}">{esc(name.upper())}</text>')
         a(f'<text x="{ox + 96}" y="{ORDER_Y + 27}" font-size="14" fill="{INK}">'
           f'{esc(sub)}</text>')
@@ -229,7 +241,7 @@ def build() -> str:
     a(f'<line x1="{s1x + s1w / 2}" y1="{join_y}" x2="{s1x + s1w / 2}" y2="{s1y}" '
       f'stroke="{LINE}" stroke-width="1.8" marker-end="url(#arw)"/>')
     a(f'<text x="{SPINE_X + SPINE_W / 2 + 16}" y="{ORDER_Y - 10}" font-family="{MONO}" '
-      f'font-size="10" letter-spacing="1" fill="{LINE}">'
+      f'font-size="14" letter-spacing="1" fill="{LINE}">'
       f'PICK ONE, ONCE &#183; BOTH REACH THE SAME SECTIONS</text>')
 
     for a_id, b_id in EDGES:
@@ -246,7 +258,7 @@ def build() -> str:
 
         # RULE 2: this <text> must stay immediately after the <rect> above.
         ty = (y + 32) if flag else (y + h / 2 + 5)
-        a(f'<text x="{x + 16}" y="{ty}" font-family="{MONO}" font-size="13" '
+        a(f'<text x="{x + 16}" y="{ty}" font-family="{MONO}" font-size="14" '
           f'font-weight="600" fill="{ACCENT}">{esc(sid)}</text>')
         a(f'<text x="{x + 58}" y="{ty}" font-size="16" font-weight="600" '
           f'fill="{INK}">{esc(title)}</text>')
@@ -255,33 +267,33 @@ def build() -> str:
             a(flagship_stamp(x + w - 104, y + h - 12))
 
     x5, y5, w5, h5 = POS["§5"]
-    a(f'<text x="{x5 + 16}" y="{y5 + h5 + 22}" font-size="12" fill="{LINE}">'
+    a(f'<text x="{x5 + 16}" y="{y5 + h5 + 22}" font-size="14" fill="{LINE}">'
       f'deployment-facing &#183; runs alongside</text>')
     x9, y9, w9, h9 = POS["§9"]
-    a(f'<text x="{x9 + 16}" y="{y9 + h9 + 22}" font-size="12" fill="{LINE}">'
+    a(f'<text x="{x9 + 16}" y="{y9 + h9 + 22}" font-size="14" fill="{LINE}">'
       f'read any time after &#167;6</text>')
     # Under the node, not beside it: the §9 corridor arrives on that right edge.
     x10, y10, w10, h10 = POS["§10"]
-    a(f'<text x="{x10 + 16}" y="{y10 + h10 + 22}" font-size="12" fill="{LINE}">'
+    a(f'<text x="{x10 + 16}" y="{y10 + h10 + CAPTION_DROP}" font-size="14" fill="{LINE}">'
       f'or fork out, honestly &#8212; that exit is in the README too</text>')
 
     # legend
-    ly = H - 26
+    ly = LEGEND_Y
     a(f'<line x1="{SPINE_X}" y1="{ly - 24}" x2="{W - 40}" y2="{ly - 24}" '
       f'stroke="{LINE}" stroke-width="1" opacity="0.4"/>')
     a(f'<line x1="{SPINE_X}" y1="{ly - 4}" x2="{SPINE_X + 26}" y2="{ly - 4}" '
       f'stroke="{LINE}" stroke-width="1.8" marker-end="url(#arw)"/>')
-    a(f'<text x="{SPINE_X + 36}" y="{ly}" font-size="12" fill="{LINE}">attack order</text>')
+    a(f'<text x="{SPINE_X + 36}" y="{ly}" font-size="14" fill="{LINE}">attack order</text>')
     a(f'<line x1="{SPINE_X + 156}" y1="{ly - 4}" x2="{SPINE_X + 182}" y2="{ly - 4}" '
       f'stroke="{LINE}" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#arw)"/>')
-    a(f'<text x="{SPINE_X + 192}" y="{ly}" font-size="12" fill="{LINE}">'
+    a(f'<text x="{SPINE_X + 192}" y="{ly}" font-size="14" fill="{LINE}">'
       f'alongside &#183; your timing</text>')
     a(flagship_stamp(SPINE_X + 380, ly + 2))
     # "break" would overclaim: the README says a flagship is "the famous, hard
     # breaks (plus the one precision milestone that most sets this map apart)"
     # — and M9.1, reading the NIST source, is that precision milestone, not a
     # break. "Flagship milestone" is the README's own term and covers all four.
-    a(f'<text x="{SPINE_X + 484}" y="{ly}" font-size="12" fill="{LINE}">'
+    a(f'<text x="{SPINE_X + 484}" y="{ly}" font-size="14" fill="{LINE}">'
       f'section with a flagship milestone</text>')
 
     a("</svg>")
