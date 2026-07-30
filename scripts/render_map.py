@@ -132,13 +132,13 @@ ORDERS = [
     (ASIDE_X, "Order B", "CryptoHack-first"),
 ]
 
-PAPER = "var(--map-paper, #f7f3ea)"
-NODE = "var(--map-node, #efe8d9)"
-SPINE_FILL = "var(--map-node-spine, #e7ded0)"
-INK = "var(--map-ink, #3a3128)"
-LINE = "var(--map-line, #6b6152)"
-ACCENT = "var(--accent, #9d3b1f)"
-GOLD = "var(--gold, #7a5809)"
+PAPER = "var(--map-paper, #fcfdfe)"
+NODE = "var(--map-node, #f2f5f9)"
+SPINE_FILL = "var(--map-node-spine, #e8ecf1)"
+INK = "var(--map-ink, #292e35)"
+LINE = "var(--map-line, #575f67)"
+ACCENT = "var(--accent, #005ab8)"
+GOLD = "var(--gold, #181e23)"
 
 SANS = ("'IBM Plex Sans',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,"
         "Helvetica,Arial,sans-serif")
